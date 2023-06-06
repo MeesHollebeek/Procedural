@@ -358,6 +358,10 @@ MonoBehaviour:
   HeightX: 0.5
   HeightZ: 0.2
   Height: 4
+  minTerrainHeight: 0
+  maxTerrainHeight: 0
+  offsetX: 8
+  offsetZ: 8
   gradient:
     serializedVersion: 2
     key0: {r: 0, g: 0.60588074, b: 1, a: 1}
