@@ -41,11 +41,22 @@ public class MeshGenerator : MonoBehaviour
         mesh = new Mesh();  
         GetComponent<MeshFilter>().mesh = mesh;
 
-        CreateShape();
+        GetComponent<MeshCollider>().sharedMesh = null;
+        
+
+
+        StartCoroutine(CreateShape());
+        
+    }
+
+    void Update()
+    {
+        GetComponent<MeshCollider>().sharedMesh = mesh;
+
         UpdateMesh();
     }
 
-   void CreateShape()
+    IEnumerator CreateShape()
     {
       vertices = new Vector3[(xSize + 1) * (zSize + 1)];
        
@@ -84,8 +95,11 @@ public class MeshGenerator : MonoBehaviour
 
                 vert++;
                 tris += 6;
+
+               
             }
             vert++;
+            yield return new WaitForSeconds(.0000001f);
         }
 
         colors = new Color[vertices.Length];
@@ -97,6 +111,7 @@ public class MeshGenerator : MonoBehaviour
                 float height = Mathf.InverseLerp(minTerrainHeight, maxTerrainHeight, vertices[i].y);
                 colors[i] = gradient.Evaluate(height);
                     i++;
+                
             }
         }
         
