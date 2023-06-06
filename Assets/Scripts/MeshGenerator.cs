@@ -30,16 +30,13 @@ public class MeshGenerator : MonoBehaviour
     public Gradient gradient;
 
     // Start is called before the first frame update
-    void Update()
+    void Start()
     {
-        //offsetZ = Random.Range(1f, 999999f);
-       // offsetX = Random.Range(1f, 999999f);
-       // scale = Random.Range(0f, 1f);
+        offsetZ = Random.Range(1f, 999999f);
+        offsetX = Random.Range(1f, 999999f);
+        scale = Random.Range(0.01f, 0.04f);
 
-      //  HeightX = Random.Range(0f, 1f);
-      //  HeightZ = Random.Range(0f, 1f);
-
-      //  Height = Random.Range(0f, 8f);
+        Height = Random.Range(6f, 10f);
 
         mesh = new Mesh();  
         GetComponent<MeshFilter>().mesh = mesh;
