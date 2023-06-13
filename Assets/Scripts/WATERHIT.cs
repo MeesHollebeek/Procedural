@@ -5,7 +5,10 @@ using UnityEngine;
 public class WATERHIT : MonoBehaviour
 {
     public bool Landed = false;
-   
+    public float Ypos;
+    public Vector3 TreePos;
+
+
 
     Rigidbody rb;
 
@@ -13,6 +16,8 @@ public class WATERHIT : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Ypos = transform.position.y;
+        TreePos = transform.position;
 
     }
 
@@ -24,7 +29,7 @@ public class WATERHIT : MonoBehaviour
           Landed = true;
         }
 
-        if (transform.position.y <= 2)
+        if (transform.position.y <= 4.5f)
         {
             Destroy(gameObject);
         }
@@ -36,5 +41,16 @@ public class WATERHIT : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (other.gameObject.CompareTag("wrong") && !Landed)
+        {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("vuurtoren"))
+        {
+            Destroy(gameObject);
+        }
     }
+
+    
 }

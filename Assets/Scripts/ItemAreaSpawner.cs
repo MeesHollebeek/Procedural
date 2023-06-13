@@ -60,13 +60,13 @@ public class ItemAreaSpawner : MonoBehaviour
     {
 
         
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(6f);
         over = true;
     }
 
     public IEnumerator LandGeneration()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(6f);
         StartCoroutine(done());
         generation = false;
 

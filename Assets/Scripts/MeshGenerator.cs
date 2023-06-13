@@ -34,9 +34,9 @@ public class MeshGenerator : MonoBehaviour
     {
         offsetZ = Random.Range(1f, 999999f);
         offsetX = Random.Range(1f, 999999f);
-        scale = Random.Range(0.01f, 0.04f);
+        scale = Random.Range(0.02f, 0.04f);
 
-        Height = Random.Range(6f, 10f);
+        Height = Random.Range(6f, 9f);
 
         mesh = new Mesh();  
         GetComponent<MeshFilter>().mesh = mesh;
